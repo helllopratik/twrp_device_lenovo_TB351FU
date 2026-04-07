@@ -49,8 +49,8 @@ BOARD_INCLUDE_RECOVERY_RAMDISK_IN_VENDOR_BOOT := true
 BOARD_EXCLUDE_KERNEL_FROM_RECOVERY_IMAGE := true
 BOARD_MOVE_GSI_AVB_KEYS_TO_VENDOR_BOOT := true
 
-# Use stock vendor ramdisk as base
-TARGET_COPY_OUT_VENDOR_RAMDISK := vendor_ramdisk
+# Use prebuilt stock vendor ramdisk
+BOARD_PREBUILT_VENDOR_RAMDISK := $(DEVICE_PATH)/prebuilt/vendor_ramdisk.cpio.lz4
 
 # Verification
 BOARD_MKBOOTIMG_ARGS += --header_version $(BOARD_BOOT_HEADER_VERSION)
