@@ -1,5 +1,5 @@
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/twrp_TB351FU.mk
+    $(LOCAL_DIR)/twrp_tb351fu.mk
 
 COMMON_LUNCH_CHOICES := \
-    twrp_TB351FU-eng
+    twrp_tb351fu-eng

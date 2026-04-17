@@ -4,16 +4,16 @@
 # These properties identify this partition image.
 ####################################
 ro.product.system.brand=alps
-ro.product.system.device=TB351FU
+ro.product.system.device=tb351fu
 ro.product.system.manufacturer=alps
 ro.product.system.model=mgvi_t_64_wifi_armv82
-ro.product.system.name=TB351FU
+ro.product.system.name=tb351fu
 ro.system.product.cpu.abilist=arm64-v8a,armeabi-v7a,armeabi
 ro.system.product.cpu.abilist32=armeabi-v7a,armeabi
 ro.system.product.cpu.abilist64=arm64-v8a
 ro.system.build.date=Fri Feb 13 19:04:11 CST 2026
 ro.system.build.date.utc=1770980651
-ro.system.build.fingerprint=alps/TB351FU/TB351FU:16/BP2A.250605.031.A3/ZUI_17.5.10.073_260213_ROW:user/release-keys
+ro.system.build.fingerprint=alps/tb351fu/tb351fu:16/BP2A.250605.031.A3/ZUI_17.5.10.073_260213_ROW:user/release-keys
 ro.system.build.id=BP2A.250605.031.A3
 ro.system.build.tags=release-keys
 ro.system.build.type=user
@@ -27,10 +27,10 @@ ro.system.build.version.sdk_full=36.0
 ####################################
 # begin build properties
 ro.build.id=BP2A.250605.031.A3
-ro.config.lgsi.sw.version=TB351FU_RF01_260213
+ro.config.lgsi.sw.version=tb351fu_RF01_260213
 ro.config.lgsi.fp.incremental=ZUI_17.5.10.073_260213_ROW
-ro.build.display.id=TB351FU_ROW_OPEN_USER_M15125.2_A16_ZUI_17.5.10.073_ST_260213
-ro.build.version.incremental=TB351FU_ROW_OPEN_USER_M15125.2_A16_ZUI_17.5.10.073_ST_260213
+ro.build.display.id=tb351fu_ROW_OPEN_USER_M15125.2_A16_ZUI_17.5.10.073_ST_260213
+ro.build.version.incremental=tb351fu_ROW_OPEN_USER_M15125.2_A16_ZUI_17.5.10.073_ST_260213
 ro.build.version.sdk=36
 ro.build.version.sdk_full=36.0
 ro.build.version.preview_sdk=0
@@ -59,7 +59,7 @@ ro.wifi.channels=
 # ro.build.product is obsolete; use ro.product.device
 ro.build.product=mgvi_t_64_wifi_armv82
 # Do not try to parse description or thumbprint
-ro.build.description=TB351FU-user 16 BP2A.250605.031.A3 17.5.10.073_260213 release-keys
+ro.build.description=tb351fu-user 16 BP2A.250605.031.A3 17.5.10.073_260213 release-keys
 # end build properties
 ####################################
 # from variable ADDITIONAL_SYSTEM_PROPERTIES
@@ -143,13 +143,13 @@ ro.build.backported_fixes.alias_bitset.long_list=18
 # These properties identify this partition image.
 ####################################
 ro.product.vendor.brand=alps
-ro.product.vendor.device=TB351FU
+ro.product.vendor.device=tb351fu
 ro.product.vendor.manufacturer=alps
 ro.product.vendor.model=mgvi_t_64_wifi_armv82
 ro.vendor.product.cpu.abilist=arm64-v8a,armeabi-v7a,armeabi
 ro.vendor.product.cpu.abilist32=armeabi-v7a,armeabi
 ro.vendor.product.cpu.abilist64=arm64-v8a
-ro.vendor.config.lgsi.hw.version=TB351FU
+ro.vendor.config.lgsi.hw.version=tb351fu
 ro.vendor.build.date=Fri Feb 13 19:04:11 CST 2026
 ro.vendor.build.date.utc=1770980651
 ro.vendor.build.id=BP2A.250605.031.A3
@@ -189,7 +189,7 @@ ro.vendor.config.lgsi.cpuinfo=MediaTek Helio G99 Octa Core
 ro.config.lgsi.cpuinfo=MediaTek Helio G99 Octa Core
 # define camera info of this product
 #ro.vendor.config.lgsi.camerainfo=
-ro.config.lgsi.hw.version=TB351FU
+ro.config.lgsi.hw.version=tb351fu
 ro.odm.lenovo.supported_csr_type=tee
 ####################################
 # from android-info.prop
@@ -221,7 +221,7 @@ ro.vendor.build.ab_ota_partitions=boot,product,system,vendor
 # from variable PRODUCT_VENDOR_PROPERTIES
 ####################################
 ro.vendor.config.lgsi.project=calla
-ro.vendor.config.lgsi.ota.model=TB351FU_ROW
+ro.vendor.config.lgsi.ota.model=tb351fu_ROW
 ro.vendor.config.lgsi.device.type=pad
 ro.vendor.config.lgsi.device.nettype=wifi
 ro.vendor.config.lgsi.platform=mtk
@@ -366,7 +366,7 @@ ro.vendor.mgvi_name=mgvi_t_64_wifi_armv82
 # These properties identify this partition image.
 ####################################
 ro.product.odm.brand=alps
-ro.product.odm.device=TB351FU
+ro.product.odm.device=tb351fu
 ro.product.odm.manufacturer=alps
 ro.product.odm.model=mgvi_t_64_wifi_armv82
 ro.odm.product.cpu.abilist=arm64-v8a,armeabi-v7a,armeabi
@@ -391,13 +391,13 @@ ro.odm.build.version.sdk_full=36.0
 # These properties identify this partition image.
 ####################################
 ro.product.product.brand=alps
-ro.product.product.device=TB351FU
+ro.product.product.device=tb351fu
 ro.product.product.manufacturer=alps
 ro.product.product.model=mgvi_t_64_wifi_armv82
-ro.product.product.name=TB351FU
+ro.product.product.name=tb351fu
 ro.product.build.date=Fri Feb 13 19:04:11 CST 2026
 ro.product.build.date.utc=1770980651
-ro.product.build.fingerprint=alps/TB351FU/TB351FU:16/BP2A.250605.031.A3/ZUI_17.5.10.073_260213_ROW:user/release-keys
+ro.product.build.fingerprint=alps/tb351fu/tb351fu:16/BP2A.250605.031.A3/ZUI_17.5.10.073_260213_ROW:user/release-keys
 ro.product.build.id=BP2A.250605.031.A3
 ro.product.build.tags=release-keys
 ro.product.build.type=user
@@ -451,7 +451,7 @@ Build.BRAND=MTK
 # These properties identify this partition image.
 ####################################
 ro.product.system_ext.brand=alps
-ro.product.system_ext.device=TB351FU
+ro.product.system_ext.device=tb351fu
 ro.product.system_ext.manufacturer=alps
 ro.product.system_ext.model=mgvi_t_64_wifi_armv82
 ro.system_ext.build.date=Fri Feb 13 19:04:11 CST 2026

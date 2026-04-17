@@ -2,7 +2,7 @@ TARGET_SUPPORTS_64_BIT_APPS := true
 TW_THEME := portrait_hdpi
 DEVICE_SCREEN_WIDTH := 1200
 DEVICE_SCREEN_HEIGHT := 2000
-DEVICE_PATH := device/lenovo/TB351FU
+DEVICE_PATH := device/lenovo/tb351fu
 
 # Architecture
 TARGET_ARCH := arm64
