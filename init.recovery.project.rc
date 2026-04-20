@@ -1,0 +1,29 @@
+import /system/etc/init/android.hardware.boot-service.mtk_recovery.rc
+import /system/etc/init/android.hardware.health-service.example_recovery.rc
+import /system/etc/init/mtk-plpath-utils.rc
+
+service recovery.load_modules /system/bin/sh /system/bin/load_recovery_modules.sh
+    disabled
+    oneshot
+    seclabel u:r:init:s0
+    user root
+    group root system
+
+on init
+    setprop sys.usb.configfs 1
+    setprop sys.usb.controller "musb-hdrc"
+    setprop sys.usb.ffs.aio_compat 0
+    mkdir /metadata 0700 root root
+
+on fs
+    wait /dev/block/by-name/metadata
+    mkdir /dev/block/bootdevice 0755 root system
+    symlink /dev/block/by-name /dev/block/bootdevice/by-name
+    start recovery.load_modules
+
+on fs && property:ro.debuggable=0
+    write /sys/class/udc/${sys.usb.controller}/device/cmode 2
+    setprop sys.usb.config adb
+
+on boot
+    start vendor.boot-default

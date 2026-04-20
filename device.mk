@@ -1,3 +1,5 @@
+DEVICE_PATH := device/lenovo/tb351fu
+
 # Enable A/B update support
 AB_OTA_UPDATER := true
 
@@ -23,6 +25,12 @@ PRODUCT_PACKAGES += \
     librecovery_ui_default \
     librecovery_utils \
     otacerts
+
+PRODUCT_COPY_FILES += \
+    $(DEVICE_PATH)/init.recovery.mt8781.rc:$(TARGET_COPY_OUT_RECOVERY)/root/init.recovery.mt8781.rc \
+    $(DEVICE_PATH)/init.recovery.mt6789.rc:$(TARGET_COPY_OUT_RECOVERY)/root/init.recovery.mt6789.rc \
+    $(DEVICE_PATH)/init.recovery.project.rc:$(TARGET_COPY_OUT_RECOVERY)/root/init.recovery.project.rc \
+    $(DEVICE_PATH)/recovery/load_recovery_modules.sh:$(TARGET_COPY_OUT_RECOVERY)/root/system/bin/load_recovery_modules.sh
 
 # Enable EROFS support (Required for ZUI 17)
 PRODUCT_FS_COMPRESSION := true
