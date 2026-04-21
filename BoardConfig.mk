@@ -21,10 +21,19 @@ TARGET_2ND_CPU_VARIANT := generic
 TARGET_2ND_CPU_VARIANT_RUNTIME := cortex-a55
 
 # Platform
-TARGET_BOARD_PLATFORM := mt8781
+TARGET_BOARD_PLATFORM := mt6789
 TARGET_BOOTLOADER_BOARD_NAME := t808aa
 BOARD_HAS_MTK_HARDWARE := true
 BOARD_USES_MTK_COMMON := true
+
+# Properties
+ADDITIONAL_DEFAULT_PROPERTIES += \
+    ro.hardware=mt8781 \
+    ro.board.platform=mt6789 \
+    ro.boot.dynamic_partitions=true \
+    ro.boot.selinux=permissive \
+    ro.secure=0 \
+    ro.debuggable=1
 
 # Treble
 PRODUCT_FULL_TREBLE_OVERRIDE := true
@@ -77,11 +86,12 @@ BOARD_LENOVO_DYNAMIC_PARTITIONS_SIZE := 4819255296
 TARGET_RECOVERY_PIXEL_FORMAT := "BGRA_8888"
 RECOVERY_GRAPHICS_FORCE_USE_LINELENGTH := true
 TW_THEME := portrait_hdpi
-TARGET_SCREEN_WIDTH := 1200
-TARGET_SCREEN_HEIGHT := 2000
+TARGET_SCREEN_WIDTH := 1080
+TARGET_SCREEN_HEIGHT := 1920
 
 # OrangeFox / TWRP Specifics
 FOX_AIK := $(shell pwd)/device/lenovo/tb351fu/FOX_AIK
+TW_DEVICE_VERSION := V32
 TW_EXCLUDE_DEFAULT_USB_INIT := true
 TW_EXTRA_LANGUAGES := true
 TW_INCLUDE_NTFS_3G := true

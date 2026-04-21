@@ -1,1 +1,2 @@
 import /init.recovery.project.rc
+import /init.recovery.usb.rc
