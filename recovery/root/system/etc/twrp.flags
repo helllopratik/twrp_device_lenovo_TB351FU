@@ -1,0 +1,8 @@
+/data           f2fs    /dev/block/sdc64                         flags=display="Internal Storage";backup=1;fsflags="discard,noflush_merge,fsync_mode=nobarrier,reserve_root=134217,resgid=1065,inlinecrypt";keydirectory=/metadata/vold/metadata_encryption
+/external_sd    vfat    /dev/block/mmcblk0p1                     flags=display="MicroSD";storage;wipeui;removable
+/usb_otg        vfat    /dev/block/sdd1                          flags=display="USB-OTG";storage;wipeui;removable
+/system         erofs   system                                   flags=display="System";backup=1;logical;slotselect
+/vendor         erofs   vendor                                   flags=display="Vendor";backup=1;logical;slotselect
+/product        erofs   product                                  flags=display="Product";backup=1;logical;slotselect
+/system_ext     erofs   system_ext                               flags=display="System_EXT";backup=1;logical;slotselect
+

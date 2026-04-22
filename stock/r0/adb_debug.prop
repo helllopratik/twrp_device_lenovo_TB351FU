@@ -1,0 +1,4 @@
+ro.adb.secure=0
+ro.debuggable=1
+persist.sys.usb.config=adb
+service.adb.root=1

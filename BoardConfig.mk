@@ -32,8 +32,19 @@ ADDITIONAL_DEFAULT_PROPERTIES += \
     ro.board.platform=mt6789 \
     ro.boot.dynamic_partitions=true \
     ro.boot.selinux=permissive \
-    ro.secure=0 \
-    ro.debuggable=1
+    ro.secure=1 \
+    ro.debuggable=0 \
+    ro.adb.secure=1 \
+    ro.orangefox.no_apex_mount=1 \
+    ro.crypto.state=unencrypted \
+    ro.crypto.type=none \
+    tw_include_crypto=false \
+    persist.sys.usb.config=mtp,adb \
+    sys.usb.config=mtp,adb \
+    tw_brightness_path="/sys/class/leds/lcd-backlight/brightness" \
+    tw_max_brightness=2047 \
+    tw_default_brightness=1200 \
+    ro.orangefox.boot=1
 
 # Treble
 PRODUCT_FULL_TREBLE_OVERRIDE := true
@@ -86,12 +97,14 @@ BOARD_LENOVO_DYNAMIC_PARTITIONS_SIZE := 4819255296
 TARGET_RECOVERY_PIXEL_FORMAT := "BGRA_8888"
 RECOVERY_GRAPHICS_FORCE_USE_LINELENGTH := true
 TW_THEME := portrait_hdpi
-TARGET_SCREEN_WIDTH := 1080
-TARGET_SCREEN_HEIGHT := 1920
+TARGET_SCREEN_WIDTH := 1200
+TARGET_SCREEN_HEIGHT := 2000
 
 # OrangeFox / TWRP Specifics
-FOX_AIK := $(shell pwd)/device/lenovo/tb351fu/FOX_AIK
-TW_DEVICE_VERSION := V32
+FOX_RECOVERY_INSTALL_DIR := /system/bin
+FOX_RECOVERY_SYSTEM_PART := /dev/block/mapper/system
+FOX_RECOVERY_VENDOR_PART := /dev/block/mapper/vendor
+TW_DEVICE_VERSION := V54
 TW_EXCLUDE_DEFAULT_USB_INIT := true
 TW_EXTRA_LANGUAGES := true
 TW_INCLUDE_NTFS_3G := true
@@ -99,6 +112,24 @@ TW_USE_TOOLBOX := true
 TW_INCLUDE_RESETPROP := true
 TW_INCLUDE_REPACKTOOLS := true
 TW_HAS_MTP := true
+
+# Fragment 0 / Platform Support
+BOARD_RAMDISK_FRAGMENT_0_NAME := platform
+BOARD_RAMDISK_FRAGMENT_0_TYPE := platform
+BOARD_RAMDISK_FRAGMENT_0_FMT := lz4_legacy
+
+# Brightness
+TW_BRIGHTNESS_PATH := "/sys/class/leds/lcd-backlight/brightness"
+TW_MAX_BRIGHTNESS := 2047
+TW_DEFAULT_BRIGHTNESS := 1200
+
+# Storage
+TW_INTERNAL_STORAGE_PATH := "/data/media"
+TW_INTERNAL_STORAGE_MOUNT_POINT := "data"
+TW_EXTERNAL_STORAGE_PATH := "/external_sd"
+TW_EXTERNAL_STORAGE_MOUNT_POINT := "external_sd"
+TW_DEFAULT_EXTERNAL_STORAGE := true
+RECOVERY_SDCARD_ON_DATA := true
 
 # Crypto & Decryption (Android 16 / FBE v2)
 TW_INCLUDE_CRYPTO := true
@@ -115,3 +146,26 @@ BUILD_BROKEN_DUP_RULES := true
 BUILD_BROKEN_ELF_PREBUILT_ERRORS := true
 ADDITIONAL_DEFAULT_PROPERTIES += persist.sys.disable_rescue=true
 BOARD_RAMDISK_USE_LZ4 := true
+
+# SELinux
+BOARD_VENDOR_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy
+SYSTEM_EXT_PUBLIC_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/public
+SYSTEM_EXT_PRIVATE_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/private
+
+# MTK Specific
+BOARD_HAS_MTK_HARDWARE := true
+BOARD_USES_MTK_COMMON := true
+BOARD_MTK_ENABLE_GENERIC_HAL := true
+
+# OrangeFox Additions
+FOX_MAINTAINER_PATCH_VERSION := 1
+TW_DEVICE_VERSION := V54-FINAL
+FOX_VANILLA := 1
+FOX_ENABLE_APP_MANAGER := 1
+FOX_USE_TWRP_RECOVERY_IMAGE_BUILDER := 1
+FOX_USE_BASH_SHELL := 1
+FOX_USE_NANO_EDITOR := 1
+FOX_USE_TAR_BINARY := 1
+FOX_USE_SED_BINARY := 1
+FOX_USE_XZ_UTILS := 1
+FOX_REPLACE_BUSYBOX_UTILS := 1

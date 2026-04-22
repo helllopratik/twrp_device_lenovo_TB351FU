@@ -16,7 +16,14 @@ on boot
     write /sys/class/leds/lcd-backlight/brightness 128
     start health-hal-2-1
     start boot-hal-1-2
+    start touchscreen_hal_service
 
 service recovery /system/bin/recovery
     socket recovery stream 422 system system
+    seclabel u:r:recovery:s0
+
+service touchscreen_hal_service /vendor/bin/hw/vendor.lenovo.hardware.touchscreen-service
+    class hal
+    user root
+    group root
     seclabel u:r:recovery:s0

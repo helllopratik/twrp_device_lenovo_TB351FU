@@ -1,0 +1,44 @@
+FRAGMENT 0 HARDCORE STUDY & MASTER FIX LOGIC
+==========================================
+
+DEVICE: Lenovo Tab Plus (TB351FU)
+CHIPSET: MediaTek MT6789 (Helio G99)
+OS BASE: Android 16 (ZUI 17)
+
+1. THE MULTI-FRAGMENT ARCHITECTURE
+----------------------------------
+The vendor_boot.img (v4) consists of:
+- Fragment 0 (platform): A full-featured Android 16 environment. It initializes Binder, HALs, and mounts partitions.
+- Fragment 1 (recovery): The OrangeFox/TWRP UI layer.
+The key discovery: In this specific device, hardware services (Touch HAL) are initialized in Fragment 0 and inherited by Fragment 1.
+
+2. THE TOUCH FAILURE (VINTF MISMATCH)
+--------------------------------------
+- Root Cause: Fragment 0 has a manifest version of 9.0 (Android 16).
+- Conflict: OrangeFox/TWRP "servicemanager" only supports up to 8.0.
+- Result: servicemanager crashes instantly. Since it handles all HAL communications, the Touch HAL (Novatek) never starts.
+- FIX: We physically modified all manifests in Fragment 0 to version 8.0 BEFORE repacking.
+
+3. THE STORAGE FAILURE (DEVICE NODE STABILITY)
+----------------------------------------------
+- Root Cause: Standard TWRP "by-name" logic fails because the kernel mapper is unstable during fragment transitions.
+- Discovery: Your logs confirmed data is physically on "/dev/block/sdc64".
+- FIX: Hardcoded /dev/block/sdc64 into recovery.fstab and twrp.flags with "inlinecrypt" enabled for FBE support.
+
+4. MASTER FIX INTEGRATION
+-------------------------
+I have added the following to TWRP_Build/device/lenovo/tb351fu/:
+- patch_fragments.sh: An automated tool that unpacks stock vendor_boot, injects the VINTF hijack and Touch blobs into Fragment 0, and assembles the final image.
+- rootfs/: Full structure for Fragment 0 patching.
+- BoardConfig.mk: Hardcoded screen (1200x2000), brightness, and MTK-specific flags.
+- build.sh / clean_build.sh: Standardized scripts to manage the environment.
+
+SAFE TO EDIT IN FRAGMENT 0:
+- system/etc/init/hw/init.rc: Use this to force-start any HAL.
+- system/etc/vintf/manifest.xml: Keep this at version 8.0!
+- first_stage_ramdisk/fstab.mt8781: Use bare-minimum flags for storage.
+
+VERIFICATION PART:
+- The device verifies the Header and the LZ4_Legacy compression.
+- Do NOT change the fragment order or names in patch_fragments.sh.
+

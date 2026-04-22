@@ -1,6 +1,28 @@
 #
 # recovery.fstab - Lenovo Tab Plus (TB351FU)
-# Matches working V26 image
+# Fixed for Direct Node Access (sdc nodes)
 #
 
-/dev/block/by-name/misc /misc emmc defaults defaults
+# Logical Partitions
+system      /system      erofs   ro  wait,slotselect,logical,first_stage_mount
+system_ext  /system_ext  erofs   ro  wait,slotselect,logical,first_stage_mount
+vendor      /vendor      erofs   ro  wait,slotselect,logical,first_stage_mount
+product     /product     erofs   ro  wait,slotselect,logical,first_stage_mount
+
+# Metadata & Data
+/dev/block/by-name/metadata  /metadata  ext4  noatime,nosuid,nodev,discard  wait,check,formattable,first_stage_mount
+/dev/block/sdc64             /data      f2fs  noatime,nosuid,nodev,discard  wait,check,formattable,quota,reservedsize=128m
+
+# Physical Partitions
+/dev/block/by-name/boot      /boot      emmc  defaults  slotselect
+/dev/block/by-name/dtbo      /dtbo      emmc  defaults  slotselect
+/dev/block/by-name/init_boot /init_boot emmc  defaults  slotselect
+/dev/block/by-name/misc      /misc      emmc  defaults  defaults
+/dev/block/by-name/persist   /persist   ext4  defaults  defaults
+/dev/block/by-name/vbmeta     /vbmeta     emmc  defaults  defaults
+/dev/block/by-name/vbmeta_system /vbmeta_system emmc  defaults  slotselect
+/dev/block/by-name/vbmeta_vendor /vbmeta_vendor emmc  defaults  slotselect
+
+# External Storage
+/dev/block/mmcblk0p1         /external_sd  vfat  defaults  voldmanaged=sdcard1:auto
+/dev/block/sdd1              /usb_otg      vfat  defaults  voldmanaged=usbotg:auto

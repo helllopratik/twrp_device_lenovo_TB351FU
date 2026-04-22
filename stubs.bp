@@ -1,0 +1,46 @@
+
+// Stubs for missing AOSP repos in TB351FU tree
+cc_defaults {
+    name: "bpf_defaults",
+}
+cc_defaults {
+    name: "gfxstream_defaults",
+}
+cc_defaults {
+    name: "vhalclient_defaults",
+}
+cc_defaults {
+    name: "tradefed_defaults",
+}
+cc_defaults {
+    name: "tradefed_errorprone_defaults",
+}
+cc_defaults {
+    name: "neuralnetworks_utils_defaults",
+}
+java_defaults {
+    name: "tradefed_defaults",
+}
+java_defaults {
+    name: "tradefed_errorprone_defaults",
+}
+java_library {
+    name: "car-framework-aconfig-libraries",
+    srcs: [],
+}
+
+
+// More stubs for missing AOSP repos
+cc_defaults {
+    name: "rdroidtest.defaults",
+}
+cc_defaults {
+    name: "avf_build_flags_rust",
+}
+cc_defaults {
+    name: "pw_rpc_generate_nanopb_proto",
+}
+cc_defaults {
+    name: "pw_rpc_generate_nanopb_rpc_header",
+}
+
